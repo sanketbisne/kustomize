@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - apache-depl.yaml
+  - apache-svc.yaml
+  - namespace.yaml
+nameSuffix: -wb-srv
+namespace: apache
+commonLabels:
+  app: apache-webserver
+
+#our previous value of apache will be overriden from apache -> apache-webserver

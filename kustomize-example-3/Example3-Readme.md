@@ -1,4 +1,8 @@
 Kustomize Common Transformers
+- namespace
+- Prefix and Suffix
+- Common Labels and Annotations
+
 
 Suppose we have a 10 environments which have deployment.yaml file and service.yaml file and we
 want to apply some common configuration like labels=prod,or prefix or suffix ,annotations or namespaces.
@@ -101,4 +105,3 @@ resources:
 - service.yaml
 
 After applying this our annotations will be added to our yaml files.
-    
