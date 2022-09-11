@@ -2,6 +2,7 @@ Kustomize Common Transformers
 - namespace
 - Prefix and Suffix
 - Common Labels and Annotations
+- images and tags
 
 
 Suppose we have a 10 environments which have deployment.yaml file and service.yaml file and we
@@ -105,3 +106,36 @@ resources:
 - service.yaml
 
 After applying this our annotations will be added to our yaml files.
+
+
+
+4. If we want to change the older tags to newer tags, we need to add the syntax newTag .
+# changing image tag from nginx:latest to nginx:1.23
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - nginx-depl.yaml
+  - nginx-service.yaml
+commonAnnotations:
+  owner: my-web-application
+images: 
+ - name: nginx
+   newTag: "1.23"
+
+
+-> After applying the nginx will be changed to nginx:1.23
+
+5. If we want to change the older image to newer image, we need to add the syntax newImage .
+# changing image tag from nginx:latest to nginx:1.23
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - mongo-depl.yaml
+  - mongo-service.yaml
+commonAnnotations:
+  owner: my-mongo-application
+images: 
+ - name: mongo
+   newImage: postgres
+
+ -> After applying the mongo will be changed to postgres
