@@ -89,6 +89,21 @@ patches:
 
 
 ```
+Patch to remove label from deployment
+
+```
+
+patches:
+  - target:
+      kind: Deployment
+      name: mongo-deployment
+    patch: |-
+      - op: remove
+        path: /spec/template/metadata/labels/org
+
+```
+
+
 # Strategic Merge Patch - updating replicas.(SEPERATE FILE )
 
 ### kustomiztion.yaml
@@ -123,3 +138,4 @@ patches:
     spec:
         replicas: 3
 ```
+

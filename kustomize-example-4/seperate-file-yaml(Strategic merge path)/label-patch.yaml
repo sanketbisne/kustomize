@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+spec:
+  template:
+    metadata:
+      labels:
+        env: test
+ 
+
+ #we have removed the containers name , etc. We will only keep the values which will change
+      
