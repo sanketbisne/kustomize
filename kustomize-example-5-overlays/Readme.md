@@ -1,4 +1,6 @@
-Overlays are the main use case for kustomize
+Here we will discuss the main use case for kustomize
+
+ie Bases and overlays.
 
 Suppose we have multiple environments like
 - Dev
@@ -30,5 +32,10 @@ OVERLAYS              # keep your different yaml files that will be changed per 
 -| QA
    - kustomization.yaml # this includes the patches that will be applied on per env basis.
    - configmap.yaml
+   - apache-deployment.yaml
+
+
+Here we can have new configs , eg : apache-deployment.yaml which is not available in any other directory or Base configs.
+we can add as many configs we need in base as well as overlays
 
 ```

@@ -1,0 +1,6 @@
+resources:
+  - api-deployment.yaml
+  - configmap.yaml
+  - mongo-depl.yaml
+
+namePrefix: base-
