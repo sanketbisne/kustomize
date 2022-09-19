@@ -1,0 +1,9 @@
+bases:
+  - ../../base
+
+components:
+  - ../../components/database
+  - ../../components/logging
+
+
+# when we apply this directory with "kubectl apply -k ." when the manifests in the base directories are applied, and manifests inside database and logging gets applied.

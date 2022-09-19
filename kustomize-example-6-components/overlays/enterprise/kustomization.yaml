@@ -1,0 +1,7 @@
+bases:
+  - ../../base
+
+components:
+
+  - ../../components/database
+  - ../../components/caching
