@@ -1,0 +1,16 @@
+configMapGenerator:
+  - name: my-config-values
+    literals:
+      - NAME=SANKET
+      - CITY=TUMSAR
+      - STATE=maharashtra
+      - INTEREST=reading,hikking
+
+  - name: new-configmap
+    files:
+      - nginx.conf
+
+secretGenerator:
+  - name : sanket-secret
+    literals:
+      - password=sanket124

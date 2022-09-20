@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: apache
+  template:
+    metadata:
+      labels:
+        component: apache
+    spec:
+      containers:
+        - name: apache
+          image: httpd:latest
+          env:
+            - name: HTTP_PORT
+              valueFrom:
+                 configMapKeyRef:
+                    name: my-config
+                    key: http-port
+
+            - name: HTTPS_PORT
+              valueFrom:
+                 configMapKeyRef:
+                    name:  my-config
+                    key: https-port
+
+            - name: MY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: sanket-secret
+                  key: password

@@ -1,0 +1,12 @@
+configMapGenerator:
+  - name: my-config
+    literals:
+      - http-port=80
+      - https-port=443
+secretGenerator:
+  - name : sanket-secret
+    literals:
+      - password=sanket123
+
+resources:
+  - sample-depl.yaml
